@@ -1,0 +1,38 @@
+
+<%- include('templates/header')-%>
+
+<h1>History Transaksi</h1>
+<br>
+<a class="btn btn-primary mb-3" href="/valid/<%= id %>">Back</a>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Dari</th>
+        <th scope="col">Kepada</th>
+        <th scope="col">Tanggal</th>
+        <th scope="col">Nominal</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%transaksis.forEach(function(transaksi) {%>  
+      <tr>
+        <td><%=transaksi.pengirim.username%></td>
+        <td>
+        <% try { %>
+          <%=transaksi.target.username%>
+        <% } catch { %>
+          -
+        <% } %>
+        </td>
+        <td><%=transaksi.tanggal.toString().substring(0,24) %></td>
+        <td style="color: blue;"><%=transaksi.nominalSaldo%></td>
+        <td><span class="badge text-bg-primary"><%=transaksi.status%></span></td>
+      </tr>
+
+      <%});%>
+    </tbody>
+
+</table>
+
+<%- include('templates/footer')-%>

@@ -1,0 +1,31 @@
+<%- include('templates/header')-%>
+
+  <form method="POST" action="/transfer">
+    <h1>
+      <%= title %>
+        <%= transfer.name %>
+    </h1>
+    <p>Saldo Anda Sekarang : <%= saldo.nominalSaldo %>
+    </p>
+    <div class="visually-hidden-focusable">
+      <label class="input-group-text" for="userMe">User Pengirim</label>
+      <input type="text" class="form-control" id="userMe" name="userMe" value="<%= transfer.username %>">
+    </div>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="userTarget">User Penerima</label>
+      <input type="text" class="form-control" id="userTarget" name="userTarget" placeholder="Masukkan User">
+    </div>
+    <div class="input-group mb-3 form-group">
+      <label class="input-group-text" for="nominal">Nominal</label>
+      <div class="input-group-prepend">
+        <span class="input-group-text">Rp. </span>
+      </div>
+      <input type="number" class="form-control" id="nominal" name="nominal" step="0.001" min="1">
+      <div class="input-group-append">
+        <span class="input-group-text">.00</span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <%- include('templates/footer')-%>

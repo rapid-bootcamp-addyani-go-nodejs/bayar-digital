@@ -1,0 +1,24 @@
+<%- include('templates/header')-%>
+
+<h1><%= title %></h1>
+<br>
+
+<form method="POST" action="/topup/<%= saldo.id %>">
+  <div class="mb-3">
+      <h4>Saldo Saat Ini : <%= saldo.nominalSaldo %></h4>
+    </div>
+    <div class="mb-3">
+      <label for="saldo" class="form-label">Silahkan Masukkan Jumlah Top up</label>
+      <input
+        type="number"
+        step="0.01"
+        class="form-control"
+        id="saldo"
+        name="saldo"
+        placeholder="0"
+      />
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+<%- include('templates/footer')-%>
